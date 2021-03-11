@@ -37,12 +37,10 @@ export default {
 {
     width: 80%;
     margin: 5% auto;
-
 }
 
 .flex-box
 {
-
     display: flex;
     justify-content: space-between;
 }
@@ -70,5 +68,14 @@ p.date
 .mobile img
 {
     width: 27%;
+}
+@media screen and (max-width:1200px)
+{
+    .project-container
+{
+    width: 80%;
+    margin: auto;
+
+}
 }
 </style>

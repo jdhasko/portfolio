@@ -35,6 +35,7 @@ export default {
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.781);     
     filter: grayscale(70%);
     transition: 0.4s ease-in-out;
+    margin: auto;
 
 }
 .project-item-container:hover
@@ -60,6 +61,21 @@ export default {
 {
     text-align: left;
     padding-left: 6%;
+}
+
+@media screen and (max-width: 1200px) {
+    .project-item-container
+{
+    background: white;
+    width: 250px;
+    height: 270px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.781);     
+    filter: grayscale(70%);
+    transition: 0.4s ease-in-out;
+    margin: auto;
+
+}
+    
 }
 
 </style>

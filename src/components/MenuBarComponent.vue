@@ -7,9 +7,7 @@
             <div id="menu-options-container">
                 <ul>
                     <template v-for="option in menuObjects" :key="option">
-                    <div class="link-background">
                      <li v-on:click="menuChange(option.menuOption)" ><a class="left">{{option.name}}</a></li>
-                    </div>
                     </template>
                 </ul>
             </div>
@@ -106,6 +104,77 @@ a.left:hover:before {
   visibility: visible;
   width: 175%;
 }
+@media screen and (max-width:1200px){
+    #menu-container{
+        height: auto;
+        z-index: 1;
+        width: 100%;
+    }
+    #logo-container
+    {
+       margin: auto 0px;
+        width:fit-content;
+        white-space: nowrap;
+    }
+    #logo-container h2{
+    font-size: 15px;
 
+    }
+    #menu-options-container
+    {
+        padding: 3%;
+    }
+
+    #menu-options-container ul
+    {
+        padding:0;
+        margin: 0;
+        vertical-align: bottom;
+    }
+    #menu-options-container li{
+    display: inline;
+    list-style: none;
+    font-size: 16px;
+    padding: 5px 15px;
+    margin: 0% 0%;
+    width: auto;
+    }
+    #menu-options-container li a
+    {
+    display: inline;
+
+    }
+
+    .flex-container 
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #title-container
+    {
+    display: block;
+    padding: 1%;
+     margin: auto 0px;
+    }
+
+    #title-container h1{
+     display: block;
+    font-weight: normal;
+    font-size: 25px;
+    text-decoration: underline;
+    writing-mode:horizontal-tb;
+    transform: rotate(0deg);
+    margin: 0;
+    padding: 0%;
+    }
+
+    a.left:hover:before {
+    visibility: visible;
+    width: 100%;
+}
+  
+}
 
 </style>

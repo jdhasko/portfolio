@@ -12,8 +12,9 @@
       <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="jdhasko" :projectName="'jdhasko.github.io.'" imgUrl="projects/jdhasko/logo.png" :imgAlt="'Jdhasko logo.'"/>
       <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="fevr" :projectName="'fevr.'" imgUrl="projects/fevr/logo.png" :imgAlt="'Twister logo.'"/>
       <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="mindeladlak" :projectName="'mindeladlak.'" imgUrl="projects/mindeladlak/logo.png" :imgAlt="'Mindeladlak logo.'"/>
+
       </div>
-      <p>Please not that the page is under construction</p>
+      <p>Please note that the page is under construction</p>
     </div>
   </template>
     <template v-if="menu ==='Contact'">
@@ -64,8 +65,8 @@
         ]" />
     </div>
   </template>
-
-    <template v-if="menu ==='fevr'">
+    
+  <template v-if="menu ==='fevr'">
     <div class="side-align">
         <ProjectComponent :projectName="'fevr'" date="November 2020"  
         description=
@@ -84,25 +85,40 @@
          The data is accessible on the FevR web-application. Here you can see the design of the web-app.
 
 
-         The project has been carried out and we passed both subjects with 12.'
+         The project has been carried out and we passed both subjects with 12.
+         The frontend was coded using React.
+         '
         :mobileView='false'
         :imgList="[
-        {url:'projects/fevr/Map-view.png', alt:'Login Screen'},
+        {url:'projects/fevr/Login-page.png', alt:'Login Screen'},
+        {url:'projects/fevr/Home.png', alt:'Home screen'},
+        {url:'projects/fevr/Map-view.png', alt:'Map-view screen'},
+        {url:'projects/fevr/DevicesPage.png', alt:'Map-view screen'},
+        {url:'projects/fevr/ListView.png', alt:'List-view screen'},
+        {url:'projects/fevr/ProfilePage.png', alt:'Map-view screen'},
+
 
         ]" />
     </div>
   </template>
-
-    <template v-if="menu ==='mindeladlak'">
+  <template v-if="menu ==='mindeladlak'">
     <div class="side-align">
         <ProjectComponent :projectName="'mindeladlak'" date="September 2020"  
         description=
         '
-        This page is still under construction. Please visit back later :)
+        This design was created for www.mindeladlak.hu. The solution has not been implemented yet but the project might start during the summer.
+        The goal was to create a more modern, user friendly web-page instead of the existing old-fashioned one.
         ' 
+        subDescription="Mindeladlak is a real-estate agency based in Hungary. I approached them with the idea of a new design and they were open
+        for co-operation."
         :mobileView='false'
         :imgList="[
         {url:'projects/mindeladlak/logo.png', alt:'logo'},
+        {url:'projects/mindeladlak/HomePage.png', alt:'logo'},
+        {url:'projects/mindeladlak/SearchPage.png', alt:'logo'},
+
+
+
 
         ]" />
     </div>
@@ -160,11 +176,12 @@ h2,h3
 .flex-box
 {
   display: flex;
+
 }
 .home-main
 {
   width: 80vw;
-  height: 100vh;
+  height: auto;
   background: #EEEEEE;
   margin-left: 19vw;
 }
@@ -188,6 +205,30 @@ h2
 .side-align
 {
   margin-left: 19vw;
+}
+
+@media only screen and (max-width: 1200px) {
+  .flex-box
+  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .home-main
+  {
+    margin: 12% auto ;
+  }
+  .grid-box
+  {
+  grid-template-columns: auto ;
+  grid-template-rows: auto auto auto auto ;
+  row-gap: 3%;
+  }
+  .side-align
+  {
+    margin: auto;
+    margin-top:12%;
+  }
 }
 
 </style>
