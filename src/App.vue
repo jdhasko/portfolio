@@ -1,6 +1,6 @@
 <template>
 <div class="flex-box">
-  <MenuBarComponent 
+  <MenuBarComponent @menuChange="(menuChange($event))"
   :menuObjects="[{name:'Home', menuOption:'Home'},{name:'Contact',menuOption:'Contact'}]" 
   />
   <template v-if="menu ==='Home'">
@@ -8,18 +8,104 @@
       <h2>My UI design projects</h2>
 
       <div class="grid-box">
-      <ProjectDisplayComponent :projectName="'twister.'" imgUrl="projects/twister/logo.png" :imgAlt="'Twister logo.'"/>
-      <ProjectDisplayComponent :projectName="'twister.'" imgUrl="projects/twister/logo.png" :imgAlt="'Twister logo.'"/>
-      <ProjectDisplayComponent :projectName="'twister.'" imgUrl="projects/twister/logo.png" :imgAlt="'Twister logo.'"/>
-      <ProjectDisplayComponent :projectName="'twister.'" imgUrl="projects/twister/logo.png" :imgAlt="'Twister logo.'"/>
-      <ProjectDisplayComponent :projectName="'twister.'" imgUrl="projects/twister/logo.png" :imgAlt="'Twister logo.'"/>
-      <ProjectDisplayComponent :projectName="'twister.'" imgUrl="projects/twister/logo.png" :imgAlt="'Twister logo.'"/>
-
+      <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="twister" :projectName="'twister.'" imgUrl="projects/twister/logo.png" :imgAlt="'Twister logo.'"/>
+      <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="jdhasko" :projectName="'jdhasko.github.io.'" imgUrl="projects/jdhasko/logo.png" :imgAlt="'Jdhasko logo.'"/>
+      <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="fevr" :projectName="'fevr.'" imgUrl="projects/fevr/logo.png" :imgAlt="'Twister logo.'"/>
+      <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="mindeladlak" :projectName="'mindeladlak.'" imgUrl="projects/mindeladlak/logo.png" :imgAlt="'Mindeladlak logo.'"/>
       </div>
+      <p>Please not that the page is under construction</p>
     </div>
   </template>
     <template v-if="menu ==='Contact'">
-    <div></div>
+        <div class="side-align">
+</div>
+  </template>
+
+  <template v-if="menu ==='twister'">
+        <div class="side-align">
+
+      <ProjectComponent :projectName="'twister'" date="February 2021"  description='Twister was designed as part of my mandatory assignment in mobile app development. Twister is a "twitter-like" app.
+        The main goal of the application to serve as a new and positive social application. While working on the UI design my main 
+        goal was to remove those elements which can cause harm in the user. (Such as number of followers, likes etc.)
+        The application aims to help people spreading positivity and connecting with each other. 
+        The design was created in Adobe Xd, and the project is still on-going so updates or changes may appear.
+        ' 
+        :mobileView='true'
+        :imgList="[
+        {url:'projects/twister/Twister-LoginPage.png', alt:'Login Screen'},
+        {url:'projects/twister/Twister-RegisterPage.png', alt:'Register Screen'},
+        {url:'projects/twister/Twister-ProfilePage.png', alt:'Login Screen'},
+        {url:'projects/twister/Twister-HPage.png', alt:'Profile Screen'},
+        {url:'projects/twister/Twister-ProfileEditPage.png', alt:'Login Screen'},
+        {url:'projects/twister/Twister-TrendingPage.png', alt:'Trending Screen'},
+        ]" 
+         />
+         </div>
+  </template>
+
+
+  <template v-if="menu ==='jdhasko'">
+    <div class="side-align">
+        <ProjectComponent :projectName="'jdhasko'" date="January 2021"  
+        description=
+        '
+        The goal with this project was to create my personal website that not only represents me in the content but in the design too.
+        I wanted to create something different, something brave, something that has a piece of my heart. The first version of the website 
+        and the design were created in 2020. In 2021 I reimagined this single-page site and created a clearer, more user friendly design.
+        I relaised my mistakes from the first design, and took them into count while creating the new one thus increasing the readability of the site.
+        In the second version, the website also got a proper mobile-view design.
+        ' 
+        :mobileView='false'
+        :imgList="[
+        {url:'projects/jdhasko/aboutMe.png', alt:'Login Screen'},
+                {url:'projects/jdhasko/logo.png', alt:'Login Screen'},
+
+        {url:'projects/jdhasko/values.png', alt:'Login Screen'},
+        ]" />
+    </div>
+  </template>
+
+    <template v-if="menu ==='fevr'">
+    <div class="side-align">
+        <ProjectComponent :projectName="'fevr'" date="November 2020"  
+        description=
+        '
+         FevR was created as part of my studies at Zealand. Fevr was our soulution for our
+         3rd semester exam in Programming and Software Design. Fevr is a high-temperature detecting system that was to be implemented by
+         local authorities and private companies. The purpose of FevR is to prevent the spread of COVID-19 and other diseases on public
+         places. The device could be installed in the entrance of public places. It gives immediate feedback if one has fever or not
+         and keeps a record of the test-data. Some part of this data is publicly accessible for everyone and some part of it is
+         protected and only can be seen by the responsible user.
+        ' 
+        subDescription='
+         Our solution is a collection of softwares and physical devices. It includes a sensor which is a Raspberry PI equipped with
+         an infrared thermometer sensor which broadcasts data on the local network to a server which sends the data to the API that
+         records the data in the database. The API and the database are located in the Azure Cloud.
+         The data is accessible on the FevR web-application. Here you can see the design of the web-app.
+
+
+         The project has been carried out and we passed both subjects with 12.'
+        :mobileView='false'
+        :imgList="[
+        {url:'projects/fevr/Map-view.png', alt:'Login Screen'},
+
+        ]" />
+    </div>
+  </template>
+
+    <template v-if="menu ==='mindeladlak'">
+    <div class="side-align">
+        <ProjectComponent :projectName="'mindeladlak'" date="September 2020"  
+        description=
+        '
+        This page is still under construction. Please visit back later :)
+        ' 
+        :mobileView='false'
+        :imgList="[
+        {url:'projects/mindeladlak/logo.png', alt:'logo'},
+
+        ]" />
+    </div>
   </template>
 </div>
 </template>
@@ -27,18 +113,29 @@
 <script>
 import MenuBarComponent from "./components/MenuBarComponent.vue";
 import ProjectDisplayComponent from "./components/ProjectDisplayComponent.vue"
+import ProjectComponent from "./components/ProjectComponent"
 
 export default {
   name: "App",
   data(){
     return{
-      menu:'Home'
+      menu: "Home"
     }
   },
   components: {
     MenuBarComponent,
-    ProjectDisplayComponent
+    ProjectDisplayComponent,
+    ProjectComponent
   },
+  methods: {
+    menuChange(newMenu)
+    {
+      this.menu = newMenu;
+      console.log("menu changed :" + newMenu  )
+    }
+  },
+ 
+
 };
 </script>
 
@@ -52,6 +149,7 @@ export default {
 }
 html,body {
   margin: 0;
+  background: #EEEEEE ;
 }
 h2,h3
 {
@@ -65,10 +163,10 @@ h2,h3
 }
 .home-main
 {
-  margin: auto;
   width: 80vw;
   height: 100vh;
   background: #EEEEEE;
+  margin-left: 19vw;
 }
 
 .grid-box
@@ -86,6 +184,10 @@ h2
   text-align: left;
   padding: 5% 7% 0%;
   
+}
+.side-align
+{
+  margin-left: 19vw;
 }
 
 </style>

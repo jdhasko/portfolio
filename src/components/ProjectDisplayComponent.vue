@@ -1,5 +1,5 @@
 <template>
-<div class="project-item-container">
+<div class="project-item-container" v-on:click="changeMenu(menuName)">
   <div class="flex-vertical">
       <img :src="require(`@/assets/${imgUrl}`)" :alt="{imgAlt}"/>
       <h3>{{projectName}}</h3>
@@ -14,7 +14,15 @@ export default {
     {
         imgUrl:String,
         imgAlt:String,
-        projectName:String
+        projectName:String,
+        menuName:String
+    },
+    methods:
+    {
+        changeMenu(newMenu) 
+        {
+            this.$emit("menuChanged", newMenu);
+        }
     }
 }
 </script>
@@ -24,16 +32,15 @@ export default {
     background: white;
     width: 200px;
     height: 220px;
-    box-shadow: 2px 2px 5px black;     
-    filter: grayscale(100%);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.781);     
+    filter: grayscale(70%);
     transition: 0.4s ease-in-out;
 
 }
 .project-item-container:hover
 {
-        filter: grayscale(0%);
-
- transform: scale(1.1);   
+     filter: grayscale(0%);
+     transform: scale(1.1);   
 }
 .project-item-container  img
 {
@@ -42,10 +49,7 @@ export default {
 
     padding: 3%;
     margin: auto;
-
 }
-
-
 
 .flex-vertical
 {

@@ -27,7 +27,14 @@ export default {
     {
         menuObjects:[Object]
     },
-    
+    methods:
+    {
+        menuChange(menuOption) 
+        {
+            this.$emit('menuChange', menuOption);
+            console.log("asd")
+        }
+    }
 
 
 }
@@ -36,8 +43,9 @@ export default {
 <style scoped>
 #menu-container
 {
-    height: 100vh;
-    width: 20vw;
+    position: fixed;
+    height: 100%;
+    width: 19vw;
     text-align: left;
     background: white;
 }
