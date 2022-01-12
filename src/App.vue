@@ -8,13 +8,15 @@
       <h2>My UI design projects</h2>
 
       <div class="grid-box">
-      <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="twister" :projectName="'twister.'" imgUrl="projects/twister/logo.png" :imgAlt="'Twister logo.'"/>
-      <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="jdhasko" :projectName="'jdhasko.github.io.'" imgUrl="projects/jdhasko/logo.png" :imgAlt="'Jdhasko logo.'"/>
-      <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="fevr" :projectName="'fevr.'" imgUrl="projects/fevr/logo.png" :imgAlt="'Twister logo.'"/>
-      <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="mindeladlak" :projectName="'mindeladlak.'" imgUrl="projects/mindeladlak/logo.png" :imgAlt="'Mindeladlak logo.'"/>
+      <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="twister" :projectName="'Twister'" imgUrl="projects/twister/logo.png" :imgAlt="'Twister logo.'"/>
+      <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="jdhasko" :projectName="'jdhasko.github.io'" imgUrl="projects/jdhasko/logo.png" :imgAlt="'Jdhasko logo.'"/>
+      <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="fevr" :projectName="'FevR'" imgUrl="projects/fevr/logo.png" :imgAlt="'Twister logo.'"/>
+      <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="mindeladlak" :projectName="'mindeladlak'" imgUrl="projects/mindeladlak/logo.png" :imgAlt="'Mindeladlak logo.'"/>
+      <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="parkandgarden" :projectName="'Park and Gaden.'" imgUrl="projects/parkandgarden/logo.png" :imgAlt="'Park and Garden logo.'"/>
+      <ProjectDisplayComponent @menuChanged="(menuChange($event))" menuName="orchid" :projectName="'Orchid'" imgUrl="projects/orchid/logo.png" :imgAlt="'Orchid logo.'"/>
 
       </div>
-      <p>Please note that the page is under construction</p>
+      <p>Please note that the page is just a demo and under construction</p>
     </div>
   </template>
     <template v-if="menu ==='Contact'">
@@ -116,10 +118,42 @@
         {url:'projects/mindeladlak/logo.png', alt:'logo'},
         {url:'projects/mindeladlak/HomePage.png', alt:'logo'},
         {url:'projects/mindeladlak/SearchPage.png', alt:'logo'},
+        ]" />
+    </div>
+  </template>
 
-
-
-
+  <template v-if="menu ==='parkandgarden'">
+    <div class="side-align">
+        <ProjectComponent :projectName="'Park and Garden'" date="December 2021"  
+        description=
+        '
+          This project has started as part of my final exam project (dissertation) in Computer Science at Zealand Academy in Roskilde.
+          It is part of a digitalization solution that has been delivered to a Hungarian business that works in floristry and gardening. 
+          The company previously did not have any online availabilities, nor a cohesive brand design. For this reason the following website, webshop, logo and other visuals were delivered. 
+        ' 
+        subDescription="A demo of the website can be seen at: www.parkeskert.com"
+        :mobileView='false'
+        :imgList="[
+        {url:'projects/parkandgarden/logo.png', alt:'logo'},
+        {url:'projects/parkandgarden/homepage.png', alt:'Home page'},
+        ]" />
+    </div>
+  </template>
+    <template v-if="menu ==='orchid'">
+    <div class="side-align">
+        <ProjectComponent :projectName="'Orchid'" date="December 2021"  
+        description=
+        '
+        Orchid is an an Inventory management and Cash registry mobile application designed for tablets. This design was created as my final exam in Computer Science at Zealand Academy in Roskilde.
+        
+        ' 
+        subDescription="A demo of the website can be seen at: www.parkeskert.com"
+        :mobileView='false'
+        :imgList="[
+        {url:'projects/orchid/homescreen.png', alt:'Home page'},
+        {url:'projects/orchid/productscreen.png', alt:'Home page'},
+        {url:'projects/orchid/cashscreen.png', alt:'Home page'},
+        {url:'projects/orchid/loginscreen.png', alt:'Home page'},
         ]" />
     </div>
   </template>
